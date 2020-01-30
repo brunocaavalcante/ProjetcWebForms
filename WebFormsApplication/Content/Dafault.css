@@ -4,7 +4,7 @@
 .limit {
     width: 1154px;
     height: 555px;
-    box-shadow: 1px 1px 1px 1px black;
+    
     margin-top: 62px;
 }
 .item-menu-square {
@@ -19,7 +19,7 @@
     display: inline-block;
     border-radius:5px;
 }
-img {
+.img-icone-dafault {
     margin-top: 10px;
     vertical-align: unset;
     margin-left: 34px;
