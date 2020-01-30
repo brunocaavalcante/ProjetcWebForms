@@ -1,0 +1,36 @@
+﻿body {
+}
+
+.limit {
+    width: 1154px;
+    height: 555px;
+    box-shadow: 1px 1px 1px 1px black;
+    margin-top: 62px;
+}
+.item-menu-square {
+    width: 200px;
+    height: 180px;
+    margin-left: 30px;
+    margin-top: 40px;
+    margin-right: 50px;
+    margin-bottom: 20px;
+    background-color: darkgray;
+    position: relative;
+    display: inline-block;
+    border-radius:5px;
+}
+img {
+    margin-top: 10px;
+    vertical-align: unset;
+    margin-left: 34px;
+    cursor: pointer
+}
+.txtItemHome {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 19px;
+    color: white;
+    cursor: pointer
+}
+
+
