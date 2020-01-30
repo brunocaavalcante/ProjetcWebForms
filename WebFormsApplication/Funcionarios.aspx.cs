@@ -90,17 +90,18 @@ namespace WebFormsApplication
                 BLLFuncionario bLLFuncionario = new BLLFuncionario();
                 Funcionario f = new Funcionario();
 
-                f.Nome = (gridFuncionarios.FooterRow.FindControl("txtNomeFooter") as TextBox).Text.Trim();
-                f.RG = (gridFuncionarios.FooterRow.FindControl("txtRGFooter") as TextBox).Text.Trim();
-                f.CPF = (gridFuncionarios.FooterRow.FindControl("txtCPFFooter") as TextBox).Text.Trim();
-                f.Cargo = (gridFuncionarios.FooterRow.FindControl("txtCargoFooter") as TextBox).Text.Trim();
-                //f.Administrado = Convert.ToBoolean((gridFuncionarios.FooterRow.FindControl("txtEmailFooter") as TextBox).Text.Trim());
-                f.Salario = Convert.ToDecimal((gridFuncionarios.FooterRow.FindControl("txtSalarioFooter") as TextBox).Text.Trim());
-                f.dataNascimento = Convert.ToDateTime((gridFuncionarios.FooterRow.FindControl("txtdataNascimentoFooter") as TextBox).Text.Trim());
+                f.Id = Convert.ToInt32(gridFuncionarios.DataKeys[e.RowIndex].Value.ToString());
+                f.Nome = (gridFuncionarios.Rows[e.RowIndex].FindControl("txtNome") as TextBox).Text.Trim();
+                f.RG = (gridFuncionarios.Rows[e.RowIndex].FindControl("txtRG") as TextBox).Text.Trim();
+                f.CPF = (gridFuncionarios.Rows[e.RowIndex].FindControl("txtCPF") as TextBox).Text.Trim();
+                f.Cargo = (gridFuncionarios.Rows[e.RowIndex].FindControl("txtCargo") as TextBox).Text.Trim();
+                //f.Administrado = Convert.ToBoolean((gridFuncionarios.Rows[e.RowIndex].FindControl("txtEmailFooter") as TextBox).Text.Trim());
+                f.Salario = Convert.ToDecimal((gridFuncionarios.Rows[e.RowIndex].FindControl("txtSalario") as TextBox).Text.Trim());
+                f.dataNascimento = Convert.ToDateTime((gridFuncionarios.Rows[e.RowIndex].FindControl("txtdataNascimento") as TextBox).Text.Trim());
                 bLLFuncionario.UpdateFuncionario(f);
                 gridFuncionarios.EditIndex = -1;
                 CarregarGridFuncionarios();
-                lblSuccessMessage.Text = "Selected Record Updated";
+                lblSuccessMessage.Text = "Usuario Atualizado com Sucesso!";
                 lblErrorMessage.Text = "";
 
             }
@@ -118,11 +119,11 @@ namespace WebFormsApplication
                 BLLFuncionario bLLFuncionario = new BLLFuncionario();
                 Funcionario f = new Funcionario();
 
-                f.Id = Convert.ToInt32((gridFuncionarios.FooterRow.FindControl("txtId") as TextBox).Text.Trim());
+                f.Id = Convert.ToInt32(gridFuncionarios.DataKeys[e.RowIndex].Value.ToString());
                 bLLFuncionario.DeleteFuncionario(f);
                 CarregarGridFuncionarios();
 
-                lblSuccessMessage.Text = "Selected Record Deleted";
+                lblSuccessMessage.Text = "Funcionario deletado com sucesso!";
                 lblErrorMessage.Text = "";
 
             }
