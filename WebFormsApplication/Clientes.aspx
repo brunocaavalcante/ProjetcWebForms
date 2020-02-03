@@ -1,19 +1,14 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Funcionarios.aspx.cs" Inherits="WebFormsApplication.Funcionarios" %>
-
-
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Clientes.aspx.cs" Inherits="WebFormsApplication.Clientes" %>
 
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="MainContent">
     <br /><br />
-
     <div>
         <div class="divGrid">
-            <asp:GridView ID="gridFuncionarios" AutoGenerateColumns="false" ShowFooter="true" ShowHeaderWhenEmpty="true" DataKeyNames="Id"
-                OnRowCommand="gridFuncionarios_OnRowCommand"
-                OnRowEditing="gridFuncionarios_RowEditing"
-                OnRowCancelingEdit="gridFuncionarios_RowCancelingEdit"
-                OnRowUpdating="gridFuncionarios_RowUpdating"
-                OnRowDeleting="gridFuncionarios_RowDeleting"
-                runat="server" CellPadding="1" Height="149px" Width="1047px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellSpacing="1">
+            <asp:GridView ID="gridClientes" AutoGenerateColumns="False" ShowFooter="true" ShowHeaderWhenEmpty="true"
+                DataKeyNames="Id" OnRowCommand="gridClientes_OnRowCommand" OnRowEditing="gridClientes_RowEditing"
+                OnRowCancelingEdit="gridClientes_RowCancelingEdit" OnRowUpdating="gridClientes_RowUpdating"
+                OnRowDeleting="gridClientes_RowDeleting" runat="server" CellPadding="1" Height="149px" Width="747px"
+                BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellSpacing="1">
                 <EditRowStyle HorizontalAlign="Justify" Width="200px" />
                 <FooterStyle BackColor="White" ForeColor="#000066" />
                 <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
@@ -63,27 +58,17 @@
                         </FooterTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="Salario">
+                    <asp:TemplateField HeaderText="Pontuação">
                         <ItemTemplate>
-                            <asp:Label Text='<%# Eval("salario") %>' runat="server"></asp:Label>
+                            <asp:Label Text='<%# Eval("PontuacaoCliente") %>' runat="server"></asp:Label>
                         </ItemTemplate>
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtSalario" Text='<%# Eval("salario") %>' runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtPontuacaoCliente" Text='<%# Eval("PontuacaoCliente") %>' runat="server">
+                            </asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="txtSalarioFooter" Text='<%# Eval("salario") %>' runat="server"></asp:TextBox>
-                        </FooterTemplate>
-                    </asp:TemplateField>
-
-                    <asp:TemplateField HeaderText="Cargo">
-                        <ItemTemplate>
-                            <asp:Label Text='<%# Eval("cargo") %>' runat="server"></asp:Label>
-                        </ItemTemplate>
-                        <EditItemTemplate>
-                            <asp:TextBox ID="txtCargo" Text='<%# Eval("cargo") %>' runat="server"></asp:TextBox>
-                        </EditItemTemplate>
-                        <FooterTemplate>
-                            <asp:TextBox ID="txtCargoFooter" Text='<%# Eval("cargo") %>' runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtPontuacaoClienteFooter" Text='<%# Eval("PontuacaoCliente") %>'
+                                runat="server"></asp:TextBox>
                         </FooterTemplate>
                     </asp:TemplateField>
 
@@ -92,30 +77,38 @@
                             <asp:Label Text='<%# Eval("dataNascimento") %>' runat="server"></asp:Label>
                         </ItemTemplate>
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtdataNascimento" Text='<%# Eval("dataNascimento") %>' runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtdataNascimento" Text='<%# Eval("dataNascimento") %>' runat="server">
+                            </asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="txtdataNascimentoFooter" Text='<%# Eval("dataNascimento") %>' runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtdataNascimentoFooter" Text='<%# Eval("dataNascimento") %>'
+                                runat="server">
+                            </asp:TextBox>
                         </FooterTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField >
+                    <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:ImageButton ImageUrl="~/Imagens/edit.png" runat="server" CommandName="Edit" ToolTip="Editar" Width="20px" Height="20px" />
-                            <asp:ImageButton ImageUrl="~/Imagens/delete.png" runat="server" CommandName="Delete" ToolTip="Excluir" Width="20px" Height="20px" />
+                            <asp:ImageButton ImageUrl="~/Imagens/edit.png" runat="server" CommandName="Edit"
+                                ToolTip="Editar" Width="20px" Height="20px" />
+                            <asp:ImageButton ImageUrl="~/Imagens/delete.png" runat="server" CommandName="Delete"
+                                ToolTip="Excluir" Width="20px" Height="20px" />
                         </ItemTemplate>
 
                         <EditItemTemplate>
-                            <asp:ImageButton ImageUrl="~/Imagens/save.png" runat="server" CommandName="Update" ToolTip="Update" Width="20px" Height="20px" />
-                            <asp:ImageButton ImageUrl="~/Imagens/cancel.png" runat="server" CommandName="Cancel" ToolTip="Cancel" Width="20px" Height="20px" />
+                            <asp:ImageButton ImageUrl="~/Imagens/save.png" runat="server" CommandName="Update"
+                                ToolTip="Update" Width="20px" Height="20px" />
+                            <asp:ImageButton ImageUrl="~/Imagens/cancel.png" runat="server" CommandName="Cancel"
+                                ToolTip="Cancel" Width="20px" Height="20px" />
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:ImageButton ImageUrl="~/Imagens/addnew.png" runat="server" CommandName="AddNew" ToolTip="Adicionar" Width="20px" Height="20px" />
+                            <asp:ImageButton ImageUrl="~/Imagens/addnew.png" runat="server" CommandName="AddNew"
+                                ToolTip="Adicionar" Width="20px" Height="20px" />
                         </FooterTemplate>
                     </asp:TemplateField>
 
                 </Columns>
-            
+
             </asp:GridView>
             <br />
             <asp:Label ID="lblSuccessMessage" Text="" runat="server" ForeColor="Green" />
@@ -123,10 +116,4 @@
             <asp:Label ID="lblErrorMessage" Text="" runat="server" ForeColor="Red" />
         </div>
     </div>
-
-
 </asp:Content>
-
-
-
-

@@ -36,6 +36,7 @@ namespace WebFormsApplication
                 gridFuncionarios.Rows[0].Cells[0].ColumnSpan = 0;
                 gridFuncionarios.Rows[0].Cells[0].Text = "No Data Found ..!";
                 gridFuncionarios.Rows[0].Cells[0].HorizontalAlign = HorizontalAlign.Center;
+                gridFuncionarios.Columns[0].ItemStyle.Width = 300;
             }
 
         }
@@ -44,24 +45,29 @@ namespace WebFormsApplication
         {
             try
             {
+                this.lblSuccessMessage.Text = "";
                 if (e.CommandName.Equals("AddNew"))
                 {
                     BLLFuncionario bLLFuncionario = new BLLFuncionario();
                     Funcionario f = new Funcionario();
 
+                    if (validaCampos())
+                    {
+                        f.Nome = (gridFuncionarios.FooterRow.FindControl("txtNomeFooter") as TextBox).Text.Trim();
+                        f.RG = (gridFuncionarios.FooterRow.FindControl("txtRGFooter") as TextBox).Text.Trim();
+                        f.CPF = (gridFuncionarios.FooterRow.FindControl("txtCPFFooter") as TextBox).Text.Trim();
+                        f.Cargo = (gridFuncionarios.FooterRow.FindControl("txtCargoFooter") as TextBox).Text.Trim();
+                        //f.Administrado = Convert.ToBoolean((gridFuncionarios.FooterRow.FindControl("txtEmailFooter") as TextBox).Text.Trim());
+                        var salario = (gridFuncionarios.FooterRow.FindControl("txtSalarioFooter") as TextBox).Text.Trim();
+                        f.Salario = Convert.ToDecimal(salario.Equals("") ? "0" : salario);
+                        var data = (gridFuncionarios.FooterRow.FindControl("txtdataNascimentoFooter") as TextBox).Text.Trim();
+                        f.dataNascimento = Convert.ToDateTime(data.Equals("") ? "10/01/2019" : data);
 
-                    f.Nome = (gridFuncionarios.FooterRow.FindControl("txtNomeFooter") as TextBox).Text.Trim();
-                    f.RG = (gridFuncionarios.FooterRow.FindControl("txtRGFooter") as TextBox).Text.Trim();
-                    f.CPF = (gridFuncionarios.FooterRow.FindControl("txtCPFFooter") as TextBox).Text.Trim();
-                    f.Cargo = (gridFuncionarios.FooterRow.FindControl("txtCargoFooter") as TextBox).Text.Trim();
-                    //f.Administrado = Convert.ToBoolean((gridFuncionarios.FooterRow.FindControl("txtEmailFooter") as TextBox).Text.Trim());
-                    f.Salario = Convert.ToDecimal((gridFuncionarios.FooterRow.FindControl("txtSalarioFooter") as TextBox).Text.Trim());
-                    f.dataNascimento = Convert.ToDateTime((gridFuncionarios.FooterRow.FindControl("txtdataNascimentoFooter") as TextBox).Text.Trim());
-
-                    bLLFuncionario.InserirFuncionario(f);
-                    CarregarGridFuncionarios();
-                    this.lblSuccessMessage.Text = "New Record Added";
-                    lblErrorMessage.Text = "";
+                        bLLFuncionario.InserirFuncionario(f);
+                        CarregarGridFuncionarios();
+                        this.lblSuccessMessage.Text = "New Record Added";
+                        lblErrorMessage.Text = "";
+                    }
                 }
             }
             catch (Exception ex)
@@ -134,6 +140,46 @@ namespace WebFormsApplication
             }
         }
 
-
+        protected bool validaCampos()
+        {
+            var msg = "";
+            var erro = 0;
+            if ((gridFuncionarios.FooterRow.FindControl("txtNomeFooter") as TextBox).Text.Trim().Equals(""))
+            {
+                msg += "* O campo nome deve ser preenchido<br>";
+                erro++;
+            }
+            if ((gridFuncionarios.FooterRow.FindControl("txtRGFooter") as TextBox).Text.Trim().Equals(""))
+            {
+                msg += "* O campo RG deve ser preenchido<br>";
+                erro++;
+            }
+            if ((gridFuncionarios.FooterRow.FindControl("txtCPFFooter") as TextBox).Text.Trim().Equals(""))
+            {
+                msg += "* O campo CPF deve ser preenchido<br>";
+                erro++;
+            }
+            if ((gridFuncionarios.FooterRow.FindControl("txtSalarioFooter") as TextBox).Text.Trim().Equals(""))
+            {
+                msg += "* O campo salario deve ser preenchido<br>";
+                erro++;
+            }
+            if ((gridFuncionarios.FooterRow.FindControl("txtCargoFooter") as TextBox).Text.Trim().Equals(""))
+            {
+                msg += "* O campo cargo deve ser preenchido<br>";
+                erro++;
+            }
+            if ((gridFuncionarios.FooterRow.FindControl("txtdataNascimentoFooter") as TextBox).Text.Trim().Equals(""))
+            {
+                msg += "* O campo data deve ser preenchido<br>";
+                erro++;
+            }
+            if (erro > 0)
+            {
+                this.lblErrorMessage.Text = msg;
+                return false;
+            }
+            return true;
+        }
     }
 }

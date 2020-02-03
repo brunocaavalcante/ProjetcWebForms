@@ -19,7 +19,9 @@ namespace WebFormsApplication
             var page = sender.GetType().GetProperty("AlternateText").GetValue(sender);
             switch (page)
             {
-                case "Funcionarios": Response.Redirect("Funcionarios.aspx"); break;                    
+                case "Funcionarios": Response.Redirect("Funcionarios.aspx"); break;
+
+                case "Clientes": Response.Redirect("Clientes.aspx"); break;
 
             }
         }

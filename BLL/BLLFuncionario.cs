@@ -31,16 +31,5 @@ namespace BLL
         {
             new DALFuncionario().deleteFuncionario(funcionario);
         }
-        public bool validaDados(Funcionario funcionario)
-        {
-            if (funcionario != null)
-            {
-                if (funcionario.dataNascimento == Convert.ToDateTime("01/01/0001 00:00:00"))
-                {
-                    // funcionario.dataNascimento = null;
-                }
-            }
-            return true;
-        }
     }
 }

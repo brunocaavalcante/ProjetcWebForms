@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Cliente: Pessoa
+    public class Cliente : Pessoa
     {
-        public float PontuacaoCliente { get; set; }
+        public decimal PontuacaoCliente { get; set; }
+        public bool Ativo { get; set; }
 
     }
 }

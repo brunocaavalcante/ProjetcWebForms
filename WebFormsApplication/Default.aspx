@@ -18,9 +18,10 @@
 
             <asp:Label ID="clienteLog" runat="server" CssClass="item-menu-square">
                 <asp:ImageButton ID="Image3" runat="server"
-                    AlternateText="Funcionarios"
+                    AlternateText="Clientes"
                     CssClass="img-icone-dafault"
                     ImageAlign="left"
+                    OnClick="goToDestino_Click"
                     ImageUrl="Imagens/clienteLog.png" />
                 <p class="txtItemHome">Clientes</p>
             </asp:Label>
