@@ -46,7 +46,8 @@
 
             <asp:Label ID="fornecedorLog" runat="server" CssClass="item-menu-square">
                 <asp:ImageButton ID="Image2" runat="server"
-                    AlternateText="Funcionarios"
+                    AlternateText="Fornecedores"
+                    OnClick="goToDestino_Click"
                     CssClass="img-icone-dafault"
                     ImageAlign="left"
                     ImageUrl="Imagens/fornecedorLog.png" />

@@ -77,7 +77,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Versão 1.0.0</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Versão 1.1.0</p>
             </footer>
         </div>
     </form>

@@ -23,6 +23,8 @@ namespace WebFormsApplication
 
                 case "Clientes": Response.Redirect("Clientes.aspx"); break;
 
+                case "Fornecedores": Response.Redirect("Fornecedores.aspx"); break;
+
             }
         }
     }
