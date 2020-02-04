@@ -32,5 +32,10 @@
     color: white;
     cursor: pointer
 }
-
+.auxIcon{
+    display:flex
+}
+th{
+    text-align:center;
+}
 

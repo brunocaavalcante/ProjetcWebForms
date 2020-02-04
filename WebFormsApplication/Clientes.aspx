@@ -2,16 +2,17 @@
 
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="MainContent">
     <br /><br />
+    <link href="Content/Dafault.css" rel="stylesheet" />
     <div>
         <div class="divGrid">
             <asp:GridView ID="gridClientes" AutoGenerateColumns="False" ShowFooter="true" ShowHeaderWhenEmpty="true"
                 DataKeyNames="Id" OnRowCommand="gridClientes_OnRowCommand" OnRowEditing="gridClientes_RowEditing"
                 OnRowCancelingEdit="gridClientes_RowCancelingEdit" OnRowUpdating="gridClientes_RowUpdating"
-                OnRowDeleting="gridClientes_RowDeleting" runat="server" CellPadding="1" Height="149px" Width="747px"
+                OnRowDeleting="gridClientes_RowDeleting" runat="server" CellPadding="1" Width="747px"
                 BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellSpacing="1">
                 <EditRowStyle HorizontalAlign="Justify" Width="200px" />
                 <FooterStyle BackColor="White" ForeColor="#000066" />
-                <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
                 <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Center" />
                 <RowStyle ForeColor="#000066" HorizontalAlign="Center" />
                 <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
@@ -87,8 +88,8 @@
                         </FooterTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField>
-                        <ItemTemplate>
+                    <asp:TemplateField ItemStyle-CssClass="auxIcon">
+                        <ItemTemplate >
                             <asp:ImageButton ImageUrl="~/Imagens/edit.png" runat="server" CommandName="Edit"
                                 ToolTip="Editar" Width="20px" Height="20px" />
                             <asp:ImageButton ImageUrl="~/Imagens/delete.png" runat="server" CommandName="Delete"

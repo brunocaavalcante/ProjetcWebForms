@@ -25,6 +25,7 @@ namespace Model
         [Required(ErrorMessage = "A data de nascimento é obrigatória!")]
         public DateTime dataNascimento { get; set; }
 
-        public Endereco endereco { get; set; }
+        public Endereco Endereco { get; set; }
+        public string Telefone { get; set; }
     }
 }
